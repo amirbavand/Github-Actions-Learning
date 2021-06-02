@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  mongo-db-auth:
+    image: mongo
+    ports:
+      - "27017:27017"
+    container_name: mongo-db-auth
+    volumes:
+      - ./db/:/data/db
+
+  nginx:
+    depends_on:
+      - auth
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - "3050:80"
+  auth:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./auth
+    volumes:
+      - /app/node_modules
+      - ./auth:/app
