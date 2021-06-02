@@ -9,5 +9,5 @@ it("returns a 201 on successful signup", async () => {
       email: "test@test.com",
       password: "password",
     })
-    .expect(200);
+    .expect(201);
 });
