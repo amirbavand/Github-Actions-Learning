@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "jest": "jest --watchAll "
+    "test": "jest --watchAll ",
+    "test:ci": "jest"
+
   },
   "jest": {
     "testEnvironment": "node",
